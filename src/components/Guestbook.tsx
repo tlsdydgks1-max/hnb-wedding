@@ -1,4 +1,4 @@
-import { MessageCircle, ChevronRight } from "lucide-react";
+import { MessageCircle, ChevronRight, ChevronDown } from "lucide-react";
 
 const messages = [
   {
@@ -51,8 +51,8 @@ export function Guestbook() {
         </div>
 
         <div className="mt-6 grid grid-cols-2 gap-3">
-          <button className="flex items-center justify-center gap-2 rounded-full border border-wedding-pinkLine py-3 text-sm text-wedding-pink hover:bg-wedding-pinkSoft">
-            더보기 <ChevronRight className="h-4 w-4" />
+          <button className="flex items-center justify-center gap-2 rounded-full bg-white border border-wedding-pinkLine py-3 text-sm text-wedding-pink hover:border-wedding-pinkLine">
+            더보기 <ChevronDown className="h-4 w-4" />
           </button>
           <button className="rounded-full bg-wedding-pink py-3 text-sm font-medium text-white shadow">
             방명록 작성하기

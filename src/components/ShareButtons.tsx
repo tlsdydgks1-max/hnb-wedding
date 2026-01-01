@@ -121,7 +121,7 @@ export function ShareButtons() {
         </div>
 
         <p className="mt-10 text-center text-[11px] text-wedding-textMuted/70">
-          ♥ H&amp;B © 2026
+          Copyright 2026 H&amp;B. All rights reserved.
         </p>
       </div>
     </section>
