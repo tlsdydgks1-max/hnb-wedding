@@ -27,12 +27,12 @@ export function ShareButtons() {
     window.Kakao.Share.sendDefault({
       objectType: "feed",
       content: {
-        title: "신용한 🤍 유예빈 결혼합니다.",
+        title: "신용한 ❤️ 유예빈 결혼합니다.",
         description: "2027.03.22\n오후 1시 30분\n더 베뉴지 서울",
-        imageUrl: "https://your-domain.com/images/img1.jpg", // 반드시 HTTPS
+        imageUrl: "https://hnb-wedding.vercel.app/images/img1.jpg",
         link: {
-          mobileWebUrl: "https:www.naver.com",
-          webUrl: "https:www.naver.com",
+          mobileWebUrl: window.location.href,
+          webUrl: window.location.href,
         },
       },
       buttons: [
