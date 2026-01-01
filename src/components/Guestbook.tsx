@@ -1,4 +1,4 @@
-import { MessageCircle, ChevronRight, ChevronDown } from "lucide-react";
+import { MessageCircle, ChevronDown } from "lucide-react";
 
 const messages = [
   {
