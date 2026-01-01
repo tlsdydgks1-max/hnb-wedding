@@ -1,4 +1,4 @@
-import { MapPin, Navigation, Bus, Car, Train } from "lucide-react";
+import { Navigation } from "lucide-react";
 import type { ReactNode } from "react";
 import { WEDDING } from "../data/wedding";
 import { NaverMap } from "./NaverMap";
