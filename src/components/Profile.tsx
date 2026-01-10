@@ -1,3 +1,12 @@
+import {
+  Flower2,
+  Heart,
+  Leaf,
+  Rabbit,
+  ScanHeart,
+  Sparkles,
+  Turtle,
+} from "lucide-react";
 import { ScrollReveal } from "./ScrollReveal";
 
 export function Profile() {
@@ -24,18 +33,17 @@ export function Profile() {
                 />
               </div>
 
-              <h3 className="mt-4 text-md font-serif text-wedding-textPrimary">
-                {"신랑_용한"}
+              <h3 className="mt-4 flex items-center gap-2 text-md font-serif text-wedding-textPrimary">
+                <Sparkles className="h-4 w-4 text-wedding-pink" />
+                신랑_용한
               </h3>
 
               <p className="mt-2 text-sm leading-relaxed text-wedding-textSecondary">
-                오늘도, 그리고 앞으로도 신부를 가장 먼저
-                <br />
-                생각하며 언제나 한결같은 마음으로
-                <br />
-                신부 곁을 지키겠습니다.
-                <br />
-                행복하게 잘 살겠습니다.
+                늘 같은 자리에서 같은 마음으로, 언제나 신부를 먼저 생각하며
+              </p>
+
+              <p className="mt-1 text-sm leading-relaxed text-wedding-textSecondary">
+                기쁠 때나 어려울 때나 변함없이 곁을 지키겠습니다.
               </p>
             </div>
 
@@ -52,20 +60,18 @@ export function Profile() {
                 />
               </div>
 
-              <h3 className="mt-4 text-md font-serif text-wedding-textPrimary">
-                {"신부_예빈"}
+              <h3 className="mt-4 flex items-center gap-2 text-md font-serif text-wedding-textPrimary">
+                <Sparkles className="h-4 w-4 text-wedding-pink" />
+                신부_예빈
               </h3>
 
               <p className="mt-2 text-sm leading-relaxed text-wedding-textSecondary">
-                사랑의 의미를 그를 통해 알게 되었고,
-                <br />
-                함께하는 행복을 배워왔습니다.
-                <br />
-                이제는 사랑스러운 아내로서,
-                <br />
-                한 사람의 곁을 평생 지켜가려 합니다.
-                <br />
-                행복하게 잘 살겠습니다.
+                사랑을 주고받는 기쁨을 알게 되었고 그와 함께하는 하루하루가
+                이제는 저의 삶이 되었습니다.
+              </p>
+
+              <p className="mt-1 text-sm leading-relaxed text-wedding-textSecondary">
+                사랑스러운 아내로서 곁을 지켜가려 합니다.
               </p>
             </div>
           </div>
