@@ -151,9 +151,9 @@ interface ChipRowProps {
 
 function ChipRow({ chip, children }: ChipRowProps) {
   return (
-    <div className="flex items-center gap-2">
+    <div className="flex items-start gap-2">
       <div>{chip}</div>
-      <div className="text-sm text-wedding-textMuted leading-relaxed">
+      <div className="text-sm pt-0.5 text-wedding-textMuted leading-relaxed">
         {children}
       </div>
     </div>
