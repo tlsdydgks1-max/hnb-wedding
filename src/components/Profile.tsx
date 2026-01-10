@@ -1,7 +1,19 @@
 import { Heart } from "lucide-react";
 import { ScrollReveal } from "./ScrollReveal";
+import { useRef, useState } from "react";
 
 export function Profile() {
+  // 프로필 이미지 로딩 상태 (영구 유지)
+  const loadedRef = useRef<Record<string, boolean>>({});
+  const [, forceUpdate] = useState(0);
+
+  const onImgLoad = (key: string) => {
+    if (!loadedRef.current[key]) {
+      loadedRef.current[key] = true;
+      forceUpdate((v) => v + 1);
+    }
+  };
+
   return (
     <section className="bg-wedding-bg px-6 py-16">
       <ScrollReveal delay={150}>
@@ -14,14 +26,34 @@ export function Profile() {
           <div className="grid grid-cols-2 gap-6">
             {/* 신랑 */}
             <div>
-              <div className="aspect-[3/4] overflow-hidden bg-gray-100">
+              <div className="relative aspect-[1/1] overflow-hidden bg-wedding-pinkSoft/40">
+                {/* 💗 하트 로딩 */}
+                <div
+                  className={`
+                    absolute inset-0 z-10 flex items-center justify-center
+                    transition-opacity duration-300
+                    ${loadedRef.current["groom"] ? "opacity-0" : "opacity-100"}
+                  `}
+                >
+                  <Heart
+                    className="h-7 w-7 animate-heartbeat text-wedding-pink"
+                    fill="currentColor"
+                  />
+                </div>
+
                 <img
                   src="/images/profile1.jpg"
                   alt="신랑"
-                  className="h-full w-full object-cover"
+                  className={`
+                    relative z-20 h-full w-full object-cover
+                    transition-opacity duration-300
+                    ${loadedRef.current["groom"] ? "opacity-100" : "opacity-0"}
+                  `}
                   loading="lazy"
                   decoding="async"
                   draggable={false}
+                  onLoad={() => onImgLoad("groom")}
+                  onError={() => onImgLoad("groom")}
                 />
               </div>
 
@@ -44,14 +76,34 @@ export function Profile() {
 
             {/* 신부 */}
             <div>
-              <div className="aspect-[3/4] overflow-hidden bg-gray-100">
+              <div className="relative aspect-[1/1] overflow-hidden bg-wedding-pinkSoft/40">
+                {/* 💗 하트 로딩 */}
+                <div
+                  className={`
+                    absolute inset-0 z-10 flex items-center justify-center
+                    transition-opacity duration-300
+                    ${loadedRef.current["bride"] ? "opacity-0" : "opacity-100"}
+                  `}
+                >
+                  <Heart
+                    className="h-7 w-7 animate-heartbeat text-wedding-pink"
+                    fill="currentColor"
+                  />
+                </div>
+
                 <img
                   src="/images/profile2.jpg"
                   alt="신부"
-                  className="h-full w-full object-cover"
+                  className={`
+                    relative z-20 h-full w-full object-cover
+                    transition-opacity duration-300
+                    ${loadedRef.current["bride"] ? "opacity-100" : "opacity-0"}
+                  `}
                   loading="lazy"
                   decoding="async"
                   draggable={false}
+                  onLoad={() => onImgLoad("bride")}
+                  onError={() => onImgLoad("bride")}
                 />
               </div>
 
