@@ -1,4 +1,4 @@
-import { Sparkles } from "lucide-react";
+import { Heart } from "lucide-react";
 import { ScrollReveal } from "./ScrollReveal";
 
 export function Profile() {
@@ -25,8 +25,11 @@ export function Profile() {
                 />
               </div>
 
-              <h3 className="mt-4 flex items-center gap-2 text-md font-serif text-wedding-textPrimary">
-                <Sparkles className="h-4 w-4 text-wedding-pink" />
+              <h3 className="mt-4 flex items-center gap-1 text-md font-serif text-wedding-textPrimary">
+                <Heart
+                  className="h-4 w-4 mb-0.5 text-wedding-pink"
+                  fill="currentColor"
+                />
                 신랑_용한
               </h3>
 
@@ -52,8 +55,11 @@ export function Profile() {
                 />
               </div>
 
-              <h3 className="mt-4 flex items-center gap-2 text-md font-serif text-wedding-textPrimary">
-                <Sparkles className="h-4 w-4 text-wedding-pink" />
+              <h3 className="mt-4 flex items-center gap-1 text-md font-serif text-wedding-textPrimary">
+                <Heart
+                  className="h-4 w-4 mb-0.5 text-wedding-pink"
+                  fill="currentColor"
+                />
                 신부_예빈
               </h3>
 
