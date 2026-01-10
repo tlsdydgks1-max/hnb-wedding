@@ -24,7 +24,7 @@ export default {
       /* Typography                    */
       /* ============================= */
       fontFamily: {
-        serif: ['"Noto Serif KR"', "serif"],
+        serif: ['"Nunito"', "sans-serif"],
         sans: ['"Noto Sans KR"', "sans-serif"],
       },
 

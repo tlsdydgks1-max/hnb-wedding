@@ -8,6 +8,7 @@ import { WeddingInfo } from "./components/WeddingInfo";
 import { Account } from "./components/Account";
 import { Guestbook } from "./components/Guestbook";
 import { ShareButtons } from "./components/ShareButtons";
+import { Profile } from "./components/Profile";
 
 function App() {
   if (window.Kakao && !window.Kakao.isInitialized()) {
@@ -32,6 +33,8 @@ function App() {
         <Account />
 
         <Guestbook />
+
+        <Profile />
 
         <ShareButtons />
       </main>
