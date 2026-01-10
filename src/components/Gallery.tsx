@@ -7,7 +7,8 @@ export function Gallery() {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
   /* 💗 썸네일 이미지 로딩 상태 */
-  const [loadedMap, setLoadedMap] = useState<Record<number, boolean>>({});
+  const loadedRef = useRef<Set<number>>(new Set());
+  const [, forceUpdate] = useState(0); // 최초 로딩 시 렌더 트리거용
 
   const images = WEDDING.gallery;
   const visibleCount = 4;
@@ -70,10 +71,10 @@ export function Gallery() {
      💗 썸네일 로딩 완료 처리
   =============================== */
   const onThumbLoad = (index: number) => {
-    setLoadedMap((prev) => ({
-      ...prev,
-      [index]: true,
-    }));
+    if (!loadedRef.current.has(index)) {
+      loadedRef.current.add(index);
+      forceUpdate((v) => v + 1); // 최초 1회만 리렌더
+    }
   };
 
   return (
@@ -100,7 +101,7 @@ export function Gallery() {
                     className={`
                       absolute inset-0 z-10 flex items-center justify-center
                       transition-opacity duration-300
-                      ${loadedMap[i] ? "opacity-0" : "opacity-100"}
+                      ${loadedRef.current.has(i) ? "opacity-0" : "opacity-100"}
                     `}
                   >
                     <Heart
@@ -116,8 +117,11 @@ export function Gallery() {
                     className={`
                       relative z-20
                       h-full w-full object-cover transform-gpu
-                      transition-opacity duration-300
-                      ${loadedMap[i] ? "opacity-100" : "opacity-0"}
+                      ${
+                        loadedRef.current.has(i)
+                          ? "opacity-100"
+                          : "opacity-0 transition-opacity duration-300"
+                      }
                     `}
                     loading="lazy"
                     decoding="async"
