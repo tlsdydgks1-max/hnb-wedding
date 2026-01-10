@@ -26,7 +26,7 @@ export function Profile() {
           <div className="grid grid-cols-2 gap-6">
             {/* 신랑 */}
             <div>
-              <div className="relative aspect-[1/1] overflow-hidden bg-wedding-pinkSoft/40">
+              <div className="relative aspect-[1/1] rounded overflow-hidden bg-wedding-pinkSoft/40">
                 {/* 💗 하트 로딩 */}
                 <div
                   className={`
@@ -76,7 +76,7 @@ export function Profile() {
 
             {/* 신부 */}
             <div>
-              <div className="relative aspect-[1/1] overflow-hidden bg-wedding-pinkSoft/40">
+              <div className="relative aspect-[1/1] rounded overflow-hidden bg-wedding-pinkSoft/40">
                 {/* 💗 하트 로딩 */}
                 <div
                   className={`
