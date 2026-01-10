@@ -1,28 +1,3 @@
-import { MessageCircle, ChevronDown } from "lucide-react";
-
-const messages = [
-  {
-    name: "김미나",
-    text: "축하해! 너무 행복한 가정 꾸리길 바랄게 ❤️",
-    date: "2026.05.20",
-  },
-  {
-    name: "이준호",
-    text: "결혼 진심으로 축하한다!",
-    date: "2026.05.18",
-  },
-  {
-    name: "박서연",
-    text: "두 분 행복하세요 💕",
-    date: "2026.05.15",
-  },
-  {
-    name: "최동욱",
-    text: "앞날에 행복만 가득하길!",
-    date: "2026.05.12",
-  },
-];
-
 export function Profile() {
   return (
     <section className="bg-wedding-bg px-6 py-16">
