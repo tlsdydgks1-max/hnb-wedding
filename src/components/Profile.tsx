@@ -1,12 +1,4 @@
-import {
-  Flower2,
-  Heart,
-  Leaf,
-  Rabbit,
-  ScanHeart,
-  Sparkles,
-  Turtle,
-} from "lucide-react";
+import { Sparkles } from "lucide-react";
 import { ScrollReveal } from "./ScrollReveal";
 
 export function Profile() {
