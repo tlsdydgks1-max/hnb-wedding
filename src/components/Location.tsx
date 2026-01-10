@@ -2,6 +2,7 @@ import { Navigation } from "lucide-react";
 import type { ReactNode } from "react";
 import { WEDDING } from "../data/wedding";
 import { NaverMap } from "./NaverMap";
+import { ScrollReveal } from "./ScrollReveal";
 
 export function Location() {
   const { venue } = WEDDING;
@@ -9,65 +10,67 @@ export function Location() {
 
   return (
     <section className="px-6 py-16">
-      <div className="mx-auto max-w-lg">
-        <h2 className="mb-10 text-center font-serif text-[1.8rem] tracking-widest">
-          오시는 길
-        </h2>
+      <ScrollReveal delay={150}>
+        <div className="mx-auto max-w-lg">
+          <h2 className="mb-10 text-center font-serif text-[1.8rem] tracking-widest">
+            오시는 길
+          </h2>
 
-        {/* 🗺 네이버 지도 */}
-        <NaverMap lat={lat} lng={lng} zoom={16} />
+          {/* 🗺 네이버 지도 */}
+          <NaverMap lat={lat} lng={lng} zoom={16} />
 
-        {/* 장소 정보 */}
-        <div className="mb-4 rounded-2xl bg-white p-6 shadow-card">
-          <h3 className="mb-2 text-xl">{venue.name}</h3>
-          <p className="mb-4 text-sm text-wedding-textMuted">
-            {venue.address}
-            <br />
-            {venue.detail}
-          </p>
+          {/* 장소 정보 */}
+          <div className="mb-4 rounded-2xl bg-white p-6 shadow-card">
+            <h3 className="mb-2 text-xl">{venue.name}</h3>
+            <p className="mb-4 text-sm text-wedding-textMuted">
+              {venue.address}
+              <br />
+              {venue.detail}
+            </p>
 
-          {/* 🚗 길찾기 버튼 */}
-          <div className="flex flex-wrap gap-2">
-            <NavButton
-              label="네이버 지도"
-              href={`https://map.naver.com/p/entry/place/${naver}`}
-            />
+            {/* 🚗 길찾기 버튼 */}
+            <div className="flex flex-wrap gap-2">
+              <NavButton
+                label="네이버 지도"
+                href={`https://map.naver.com/p/entry/place/${naver}`}
+              />
 
-            <NavButton
-              label="카카오 지도"
-              href={`https://map.kakao.com/link/to/${encodeURIComponent(
-                venue.name
-              )},${lat},${lng}`}
-            />
+              <NavButton
+                label="카카오 지도"
+                href={`https://map.kakao.com/link/to/${encodeURIComponent(
+                  venue.name
+                )},${lat},${lng}`}
+              />
+            </div>
+          </div>
+
+          {/* 교통 안내 */}
+          <div className="space-y-5 rounded-2xl bg-white p-6 shadow-card">
+            <InfoRow title="지하철">
+              <div className="space-y-1">
+                {venue.transport.subway.lines.map((line) => (
+                  <ChipRow
+                    key={line.line}
+                    chip={<LineChip label={line.line} color={line.color} />}
+                  >
+                    {line.description}
+                  </ChipRow>
+                ))}
+              </div>
+            </InfoRow>
+
+            <InfoRow title="버스">
+              <div className="space-y-1">
+                {venue.transport.bus.lines.map((bus) => (
+                  <ChipRow key={bus.type} chip={<LineChip label={bus.type} />}>
+                    {bus.numbers.join(" · ")}
+                  </ChipRow>
+                ))}
+              </div>
+            </InfoRow>
           </div>
         </div>
-
-        {/* 교통 안내 */}
-        <div className="space-y-5 rounded-2xl bg-white p-6 shadow-card">
-          <InfoRow title="지하철">
-            <div className="space-y-1">
-              {venue.transport.subway.lines.map((line) => (
-                <ChipRow
-                  key={line.line}
-                  chip={<LineChip label={line.line} color={line.color} />}
-                >
-                  {line.description}
-                </ChipRow>
-              ))}
-            </div>
-          </InfoRow>
-
-          <InfoRow title="버스">
-            <div className="space-y-1">
-              {venue.transport.bus.lines.map((bus) => (
-                <ChipRow key={bus.type} chip={<LineChip label={bus.type} />}>
-                  {bus.numbers.join(" · ")}
-                </ChipRow>
-              ))}
-            </div>
-          </InfoRow>
-        </div>
-      </div>
+      </ScrollReveal>
     </section>
   );
 }

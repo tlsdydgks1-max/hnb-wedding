@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { ChevronLeft, ChevronRight, ChevronDown, X, Heart } from "lucide-react";
 import { WEDDING } from "../data/wedding";
+import { ScrollReveal } from "./ScrollReveal";
 
 export function Gallery() {
   const [expanded, setExpanded] = useState(false);
@@ -83,38 +84,39 @@ export function Gallery() {
           📷 Gallery
       =============================== */}
       <section className="px-6 py-16">
-        <h2 className="mb-10 text-center font-serif text-[1.8rem] tracking-widest text-wedding-textPrimary">
-          Gallery
-        </h2>
+        <ScrollReveal delay={100}>
+          <h2 className="mb-10 text-center font-serif text-[1.8rem] tracking-widest text-wedding-textPrimary">
+            Gallery
+          </h2>
 
-        <div className="mx-auto max-w-lg">
-          <div className="grid grid-cols-2 gap-3">
-            {visibleImages.map((src, i) => (
-              <button
-                key={src}
-                onClick={() => setActiveIndex(i)}
-                className="aspect-square overflow-hidden rounded-2xl shadow-soft"
-              >
-                <div className="relative h-full w-full bg-wedding-pinkSoft/40">
-                  {/* 💗 하트 로딩 (opacity로만 제어) */}
-                  <div
-                    className={`
+          <div className="mx-auto max-w-lg">
+            <div className="grid grid-cols-2 gap-3">
+              {visibleImages.map((src, i) => (
+                <button
+                  key={src}
+                  onClick={() => setActiveIndex(i)}
+                  className="aspect-square overflow-hidden rounded-2xl shadow-soft"
+                >
+                  <div className="relative h-full w-full bg-wedding-pinkSoft/40">
+                    {/* 💗 하트 로딩 (opacity로만 제어) */}
+                    <div
+                      className={`
                       absolute inset-0 z-10 flex items-center justify-center
                       transition-opacity duration-300
                       ${loadedRef.current.has(i) ? "opacity-0" : "opacity-100"}
                     `}
-                  >
-                    <Heart
-                      className="h-7 w-7 text-wedding-pink animate-heartbeat"
-                      fill="currentColor"
-                    />
-                  </div>
+                    >
+                      <Heart
+                        className="h-7 w-7 text-wedding-pink animate-heartbeat"
+                        fill="currentColor"
+                      />
+                    </div>
 
-                  {/* 이미지 */}
-                  <img
-                    src={src}
-                    alt={`gallery-${i + 1}`}
-                    className={`
+                    {/* 이미지 */}
+                    <img
+                      src={src}
+                      alt={`gallery-${i + 1}`}
+                      className={`
                       relative z-20
                       h-full w-full object-cover transform-gpu
                       ${
@@ -123,26 +125,27 @@ export function Gallery() {
                           : "opacity-0 transition-opacity duration-300"
                       }
                     `}
-                    loading="lazy"
-                    decoding="async"
-                    draggable={false}
-                    onLoad={() => onThumbLoad(i)}
-                    onError={() => onThumbLoad(i)}
-                  />
-                </div>
-              </button>
-            ))}
-          </div>
+                      loading="lazy"
+                      decoding="async"
+                      draggable={false}
+                      onLoad={() => onThumbLoad(i)}
+                      onError={() => onThumbLoad(i)}
+                    />
+                  </div>
+                </button>
+              ))}
+            </div>
 
-          {!expanded && images.length > visibleCount && (
-            <button
-              onClick={() => setExpanded(true)}
-              className="mt-6 flex w-full items-center justify-center gap-2 rounded-full border border-wedding-pinkLine py-3 text-sm text-wedding-pink hover:border-wedding-pinkLine"
-            >
-              사진 더보기 <ChevronDown className="h-4 w-4" />
-            </button>
-          )}
-        </div>
+            {!expanded && images.length > visibleCount && (
+              <button
+                onClick={() => setExpanded(true)}
+                className="mt-6 flex w-full items-center justify-center gap-2 rounded-full border border-wedding-pinkLine py-3 text-sm text-wedding-pink hover:border-wedding-pinkLine"
+              >
+                사진 더보기 <ChevronDown className="h-4 w-4" />
+              </button>
+            )}
+          </div>
+        </ScrollReveal>
       </section>
 
       {/* ===============================

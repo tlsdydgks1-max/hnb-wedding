@@ -1,6 +1,7 @@
 import { useState, type ReactNode } from "react";
 import { Copy, Check, ChevronDown } from "lucide-react";
 import { WEDDING } from "../data/wedding";
+import { ScrollReveal } from "./ScrollReveal";
 
 /* ===============================
    Clipboard Util (실사용 안정판)
@@ -32,36 +33,38 @@ export function Account() {
 
   return (
     <section className="bg-wedding-bg px-6 py-16">
-      <div className="mx-auto max-w-lg">
-        <h2 className="mb-4 text-center font-serif text-[1.8rem] tracking-widest">
-          마음을 전하실 곳
-        </h2>
+      <ScrollReveal delay={150}>
+        <div className="mx-auto max-w-lg">
+          <h2 className="mb-4 text-center font-serif text-[1.8rem] tracking-widest">
+            마음을 전하실 곳
+          </h2>
 
-        <p className="mb-10 text-center text-sm leading-relaxed text-wedding-textMuted">
-          참석이 어려우신 분들을 위해
-          <br />
-          계좌번호를 기재하였습니다.
-          <br />
-          너그러운 마음으로 양해 부탁드립니다.
-        </p>
+          <p className="mb-10 text-center text-sm leading-relaxed text-wedding-textMuted">
+            참석이 어려우신 분들을 위해
+            <br />
+            계좌번호를 기재하였습니다.
+            <br />
+            너그러운 마음으로 양해 부탁드립니다.
+          </p>
 
-        <div className="space-y-3">
-          {accounts.map((group) => (
-            <AccountDropdown key={group.side} title={group.title}>
-              <div className="space-y-3">
-                {group.rows.map((row) => (
-                  <AccountRow
-                    key={`${row.label}-${row.bank}-${row.number}`}
-                    label={row.label}
-                    bank={row.bank}
-                    number={row.number}
-                  />
-                ))}
-              </div>
-            </AccountDropdown>
-          ))}
+          <div className="space-y-3">
+            {accounts.map((group) => (
+              <AccountDropdown key={group.side} title={group.title}>
+                <div className="space-y-3">
+                  {group.rows.map((row) => (
+                    <AccountRow
+                      key={`${row.label}-${row.bank}-${row.number}`}
+                      label={row.label}
+                      bank={row.bank}
+                      number={row.number}
+                    />
+                  ))}
+                </div>
+              </AccountDropdown>
+            ))}
+          </div>
         </div>
-      </div>
+      </ScrollReveal>
     </section>
   );
 }
