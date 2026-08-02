@@ -7,6 +7,7 @@ import { Location } from "./components/Location";
 import { WeddingInfo } from "./components/WeddingInfo";
 import { Account } from "./components/Account";
 import { Guestbook } from "./components/Guestbook";
+import { GuestbookDialog } from "./components/GuestbookDialog";
 import { ShareButtons } from "./components/ShareButtons";
 import { Profile } from "./components/Profile";
 
@@ -38,6 +39,7 @@ function App() {
 
         <ShareButtons />
       </main>
+      <GuestbookDialog />
     </div>
   );
 }

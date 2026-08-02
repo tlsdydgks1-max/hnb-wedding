@@ -1,18 +1,8 @@
-﻿import { useEffect, useMemo, useState, type FormEvent } from "react";
-import {
-  ChevronLeft,
-  ChevronRight,
-  MessageCircle,
-  PenLine,
-  Send,
-  X,
-} from "lucide-react";
+import { useEffect, useMemo, useState } from "react";
+import { ChevronLeft, ChevronRight, MessageCircle, PenLine } from "lucide-react";
 import { ScrollReveal } from "./ScrollReveal";
-import {
-  createGuestbookMessage,
-  fetchGuestbookMessages,
-  type GuestbookMessage,
-} from "../lib/guestbook";
+import { fetchGuestbookMessages } from "../lib/guestbook";
+import { useGuestbookStore } from "../store/guestbook";
 
 const PAGE_SIZE = 5;
 
@@ -39,15 +29,10 @@ function getPageItems(page: number, pageCount: number) {
 }
 
 export function Guestbook() {
-  const [messages, setMessages] = useState<GuestbookMessage[]>([]);
+  const { messages, openDialog, setMessages } = useGuestbookStore();
   const [page, setPage] = useState(1);
-  const [isWriting, setIsWriting] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
-  const [isSaving, setIsSaving] = useState(false);
-  const [name, setName] = useState("");
-  const [message, setMessage] = useState("");
   const [error, setError] = useState("");
-  const [formError, setFormError] = useState("");
 
   useEffect(() => {
     fetchGuestbookMessages()
@@ -56,18 +41,7 @@ export function Guestbook() {
         setError(err instanceof Error ? err.message : "방명록 오류가 발생했습니다."),
       )
       .finally(() => setIsLoading(false));
-  }, []);
-
-  useEffect(() => {
-    if (!isWriting) return;
-
-    const previousOverflow = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
-
-    return () => {
-      document.body.style.overflow = previousOverflow;
-    };
-  }, [isWriting]);
+  }, [setMessages]);
 
   const pageCount = Math.max(1, Math.ceil(messages.length / PAGE_SIZE));
   const pageItems = useMemo(() => getPageItems(page, pageCount), [page, pageCount]);
@@ -75,35 +49,6 @@ export function Guestbook() {
     () => messages.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE),
     [messages, page],
   );
-
-  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-
-    const trimmedName = name.trim();
-    const trimmedMessage = message.trim();
-    if (!trimmedName || !trimmedMessage) {
-      setFormError("이름과 메시지를 모두 입력해 주세요.");
-      return;
-    }
-
-    setIsSaving(true);
-    setFormError("");
-
-    try {
-      const created = await createGuestbookMessage(trimmedName, trimmedMessage);
-      setMessages((current) => [created, ...current]);
-      setName("");
-      setMessage("");
-      setIsWriting(false);
-      setPage(1);
-    } catch (err) {
-      setFormError(
-        err instanceof Error ? err.message : "방명록을 저장하지 못했습니다.",
-      );
-    } finally {
-      setIsSaving(false);
-    }
-  }
 
   return (
     <section className="bg-wedding-bg px-6 py-16">
@@ -117,8 +62,8 @@ export function Guestbook() {
             <button
               type="button"
               onClick={() => {
-                setFormError("");
-                setIsWriting(true);
+                setPage(1);
+                openDialog();
               }}
               className="inline-flex items-center gap-2 rounded-full border border-wedding-pinkLine bg-white px-5 py-2.5 text-sm text-wedding-pink shadow-soft"
             >
@@ -126,71 +71,6 @@ export function Guestbook() {
               방명록 작성하기
             </button>
           </div>
-
-          {isWriting && (
-            <div
-              className="fixed inset-0 z-50 flex items-center justify-center overflow-y-auto bg-black/45 px-6 py-8"
-              onClick={() => setIsWriting(false)}
-            >
-            <form
-              onSubmit={handleSubmit}
-              onClick={(event) => event.stopPropagation()}
-              className="w-full max-w-lg rounded-2xl bg-white p-5 shadow-card"
-            >
-              <div className="mb-5 flex items-center justify-between">
-                <h3 className="text-base font-semibold text-wedding-textPrimary">
-                  방명록 작성
-                </h3>
-                <button
-                  type="button"
-                  aria-label="닫기"
-                  onClick={() => setIsWriting(false)}
-                  className="flex h-9 w-9 items-center justify-center rounded-full bg-wedding-pinkSoft text-wedding-pink"
-                >
-                  <X className="h-4 w-4" />
-                </button>
-              </div>
-
-              <label className="mb-2 block text-xs font-semibold text-wedding-textSecondary">
-                이름
-              </label>
-              <input
-                value={name}
-                onChange={(event) => setName(event.target.value)}
-                maxLength={20}
-                className="mb-4 w-full rounded-xl border border-wedding-pinkLine bg-white px-4 py-3 text-sm text-wedding-textPrimary outline-none focus:border-wedding-pink"
-                placeholder="이름을 입력해 주세요"
-              />
-
-              <label className="mb-2 block text-xs font-semibold text-wedding-textSecondary">
-                메시지
-              </label>
-              <textarea
-                value={message}
-                onChange={(event) => setMessage(event.target.value)}
-                maxLength={300}
-                rows={4}
-                className="w-full resize-none rounded-xl border border-wedding-pinkLine bg-white px-4 py-3 text-sm text-wedding-textPrimary outline-none focus:border-wedding-pink"
-                placeholder="축하 메시지를 남겨 주세요"
-              />
-
-              {formError && (
-                <p className="mt-4 rounded-xl bg-wedding-pinkSoft px-4 py-3 text-center text-sm text-wedding-textSecondary">
-                  {formError}
-                </p>
-              )}
-
-              <button
-                type="submit"
-                disabled={isSaving}
-                className="mt-4 flex w-full items-center justify-center gap-2 rounded-full bg-wedding-pink py-3 text-sm font-medium text-white shadow disabled:cursor-not-allowed disabled:opacity-60"
-              >
-                <Send className="h-4 w-4" />
-                {isSaving ? "저장 중..." : "남기기"}
-              </button>
-            </form>
-            </div>
-          )}
 
           {error && (
             <p className="mb-4 rounded-xl bg-white px-4 py-3 text-center text-sm text-wedding-textSecondary shadow-soft">
@@ -278,10 +158,8 @@ export function Guestbook() {
               <ChevronRight className="h-4 w-4" />
             </button>
           </div>
-
         </div>
       </ScrollReveal>
     </section>
   );
 }
-

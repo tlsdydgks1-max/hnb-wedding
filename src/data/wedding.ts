@@ -22,7 +22,7 @@ export const WEDDING = {
 
     location: {
       lat: 37.5058,
-      lng: 126.7531,
+      lng: 126.7538,
       naver: 12945535,
     },
 
