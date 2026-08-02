@@ -39,9 +39,9 @@ export function Location() {
 
               <NavButton
                 label="카카오 지도"
-                href={`https://map.kakao.com/link/to/${encodeURIComponent(
-                  venue.name
-                )},${lat},${lng}`}
+                href={`https://map.kakao.com/link/search/${encodeURIComponent(
+                  "라비에벨웨딩",
+                )}`}
               />
             </div>
           </div>
