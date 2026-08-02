@@ -21,9 +21,8 @@ export const WEDDING = {
     detail: "9층 오페라홀",
 
     location: {
-      lat: 37.5058,
-      lng: 126.7538,
-      naver: 12945535,
+      lat: 37.50641,
+      lng: 126.75413,
     },
 
     navigation: {

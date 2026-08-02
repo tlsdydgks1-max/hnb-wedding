@@ -6,7 +6,7 @@ import { ScrollReveal } from "./ScrollReveal";
 
 export function Location() {
   const { venue } = WEDDING;
-  const { lat, lng, naver } = venue.location;
+  const { lat, lng } = venue.location;
 
   return (
     <section className="px-6 py-16">
@@ -32,7 +32,9 @@ export function Location() {
             <div className="flex flex-wrap gap-2">
               <NavButton
                 label="네이버 지도"
-                href={`https://map.naver.com/p/entry/place/${naver}`}
+                href={`https://map.naver.com/p/search/${encodeURIComponent(
+                  `${venue.name} ${venue.address}`,
+                )}`}
               />
 
               <NavButton
