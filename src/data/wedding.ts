@@ -6,24 +6,24 @@ export const WEDDING = {
 
   date: {
     /** 👀 화면 표시용 */
-    full: "2027.03.22 SAT. 1:30 PM",
-    month: "03",
-    day: "22",
+    full: "2027.02.13 SAT. 5:00 PM",
+    month: "02",
+    day: "13",
 
     /** 🧠 로직용 (핵심) */
-    at: new Date("2027-03-22T13:30:00"), // 로컬 기준
+    at: new Date("2027-02-13T17:00:00"), // 로컬 기준
   },
 
   venue: {
-    full: "더 베뉴지 서울 2층 아트홀",
-    name: "더 베뉴지 서울",
-    address: "서울특별시 강서구 강서로 388",
-    detail: "2층 아트홀",
+    full: "라비에벨웨딩 9층 오페라홀",
+    name: "라비에벨웨딩",
+    address: "경기 부천시 원미구 길주로 105",
+    detail: "9층 오페라홀",
 
     location: {
-      lat: 37.560158,
-      lng: 126.839322,
-      naver: 33499928,
+      lat: 37.5058,
+      lng: 126.7531,
+      naver: 12945535,
     },
 
     navigation: {
@@ -36,14 +36,15 @@ export const WEDDING = {
       subway: {
         lines: [
           {
-            line: "5호선",
-            color: "purple",
-            description: "발산역 3번 출구 도보 1분",
+            line: "7호선",
+            color: "green",
+            description: "상동역 7번, 8번 출구와 바로 연결",
           },
           {
-            line: "9호선",
-            color: "gold",
-            description: "양천향교역 6번 출구 도보 10분",
+            line: "1호선",
+            color: "blue",
+            description:
+              "송내역 2번 출구 (버스로 15분 정도 소요 / 버스노선: 16, 37, 83, 87)",
           },
         ],
       },
@@ -51,18 +52,41 @@ export const WEDDING = {
       bus: {
         lines: [
           {
-            type: "간선",
-            numbers: ["601", "605", "652", "654", "661"],
+            type: "상동역7번출구",
+            numbers: ["5-4", "16", "33", "50-1", "83"],
           },
           {
-            type: "지선",
-            numbers: ["6630", "6632", "6642", "6645", "6648", "6657", "6712"],
+            type: "상동역8번출구",
+            numbers: [
+              "6-2",
+              "23-2",
+              "24",
+              "37",
+              "50-1",
+              "52",
+              "59",
+              "59-1",
+              "66",
+              "70",
+              "87",
+            ],
+          },
+          {
+            type: "광역버스",
+            numbers: [
+              "9300(강남역)",
+              "8906(범계역)",
+              "8106(분당)",
+              "1001(고양교통)",
+              "1601(홍대)",
+            ],
           },
         ],
       },
 
       parking: {
-        description: "지하 1~3층 / 3시간 무료",
+        description:
+          "본 건물 지하 2층~지하 4층, 건물 앞 하이파킹 공영주차장 이용 가능 / 하객 2시간 무료",
       },
     },
   },
@@ -79,25 +103,25 @@ export const WEDDING = {
         key: "datetime",
         icon: "Calendar",
         title: "예식 시간",
-        desc: "2027년 3월 22일 (토) 오후 1시 30분",
+        desc: "2027년 2월 13일 (토) 오후 5시",
       },
       {
         key: "meal",
         icon: "Utensils",
         title: "식사 안내",
-        desc: "예식 후 5층 연회장에서 피로연이 있습니다.",
+        desc: "식사는 예식 30분 전부터 2시간 30분 동안 이용 가능합니다. (오후 4시 30분~오후 7시)",
       },
       {
-        key: "entry",
-        icon: "Clock",
-        title: "입장 안내",
-        desc: "예식 30분 전부터 입장 가능합니다.",
+        key: "atm",
+        icon: "Landmark",
+        title: "ATM 안내",
+        desc: "본 건물 1층 하나은행, 2층 국민은행, 9층 로비 중앙에 웨딩홀 ATM기가 있습니다.",
       },
       {
-        key: "etc",
-        icon: "Info",
-        title: "기타 안내",
-        desc: "주례 없는 예식으로 진행됩니다.",
+        key: "parking",
+        icon: "CircleParking",
+        title: "주차 안내",
+        desc: "주차는 본 건물 내 지하 2층 ~ 지하 4층 주차장, 건물 앞 하이파킹 공영주차장 이용 가능합니다.\n하객 2시간 무료입니다.",
       },
     ],
   },

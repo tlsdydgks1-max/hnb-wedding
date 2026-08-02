@@ -24,8 +24,8 @@ export default {
       /* Typography                    */
       /* ============================= */
       fontFamily: {
-        serif: ['"Nunito"', "sans-serif"],
-        sans: ['"Noto Sans KR"', "sans-serif"],
+        serif: ['"TMoneyDungunbaram"', "sans-serif"],
+        sans: ['"TMoneyDungunbaram"', '"Noto Sans KR"', "sans-serif"],
       },
 
       /* ============================= */

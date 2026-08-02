@@ -1,4 +1,4 @@
-import { Navigation } from "lucide-react";
+﻿import { Navigation } from "lucide-react";
 import type { ReactNode } from "react";
 import { WEDDING } from "../data/wedding";
 import { NaverMap } from "./NaverMap";
@@ -63,7 +63,7 @@ export function Location() {
               <div className="space-y-1">
                 {venue.transport.bus.lines.map((bus) => (
                   <ChipRow key={bus.type} chip={<LineChip label={bus.type} />}>
-                    {bus.numbers.join(" · ")}
+                    {bus.numbers.join(", ")}
                   </ChipRow>
                 ))}
               </div>
@@ -137,7 +137,7 @@ const LINE_CHIP_COLOR_MAP: Record<LineChipColor, string> = {
 function LineChip({ label, color = "default" }: LineChipProps) {
   return (
     <span
-      className={`inline-flex items-center rounded-full min-w-12 px-2.5 py-0.5 text-xs place-content-center font-medium ${LINE_CHIP_COLOR_MAP[color]}`}
+      className={`inline-flex min-w-12 items-center place-content-center rounded-full px-2.5 py-0.5 text-xs font-medium whitespace-nowrap ${LINE_CHIP_COLOR_MAP[color]}`}
     >
       {label}
     </span>
@@ -159,3 +159,4 @@ function ChipRow({ chip, children }: ChipRowProps) {
     </div>
   );
 }
+

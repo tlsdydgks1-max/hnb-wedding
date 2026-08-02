@@ -1,4 +1,4 @@
-import { useState, type ReactNode } from "react";
+﻿import { useState, type ReactNode } from "react";
 import { Copy, Check, ChevronDown } from "lucide-react";
 import { WEDDING } from "../data/wedding";
 import { ScrollReveal } from "./ScrollReveal";
@@ -85,7 +85,9 @@ function AccountDropdown({
     <div className="rounded-2xl bg-white shadow-card">
       <button
         onClick={() => setOpen((v) => !v)}
-        className="flex w-full items-center justify-between px-5 py-4 text-sm font-semibold"
+        className={`flex w-full items-center justify-between px-5 text-sm font-semibold ${
+          open ? "pb-2 pt-4" : "py-4"
+        }`}
       >
         {title}
         <ChevronDown
@@ -93,7 +95,7 @@ function AccountDropdown({
         />
       </button>
 
-      {open && <div className="border-t px-5 py-4">{children}</div>}
+      {open && <div className="px-5 pb-4">{children}</div>}
     </div>
   );
 }
@@ -143,3 +145,4 @@ function AccountRow({ label, bank, number }: AccountInfo) {
     </div>
   );
 }
+

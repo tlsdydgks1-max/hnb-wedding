@@ -1,4 +1,4 @@
-import { Heart } from "lucide-react";
+﻿import { Heart } from "lucide-react";
 import { useCountdown } from "../hook/useCountdown";
 import { WEDDING } from "../data/wedding";
 import { getMonthCalendar } from "../utils/calendar";
@@ -107,3 +107,4 @@ export function WeddingCalendar() {
     </section>
   );
 }
+

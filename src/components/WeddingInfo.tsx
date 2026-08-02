@@ -1,12 +1,14 @@
-import { WEDDING } from "../data/wedding";
-import { Calendar, Clock, Utensils, Info } from "lucide-react";
+﻿import { WEDDING } from "../data/wedding";
+import { Calendar, CircleParking, Clock, Info, Landmark, Utensils } from "lucide-react";
 import { ScrollReveal } from "./ScrollReveal";
 
 export const WEDDING_INFO_ICON_MAP = {
   Calendar,
+  CircleParking,
   Clock,
   Utensils,
   Info,
+  Landmark,
 } as const;
 
 export function WeddingInfo() {
@@ -35,7 +37,7 @@ export function WeddingInfo() {
                     <h3 className="mb-1 text-sm font-semibold text-wedding-textPrimary">
                       {item.title}
                     </h3>
-                    <p className="text-sm leading-relaxed text-wedding-textMuted">
+                    <p className="whitespace-pre-wrap break-words text-sm leading-relaxed text-wedding-textMuted">
                       {item.desc}
                     </p>
                   </div>
@@ -48,3 +50,4 @@ export function WeddingInfo() {
     </section>
   );
 }
+
