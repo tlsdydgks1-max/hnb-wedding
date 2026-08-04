@@ -15,7 +15,7 @@ export function Profile() {
   };
 
   return (
-    <section className="bg-wedding-bg px-6 py-16">
+    <section className="wedding-profile bg-wedding-bg px-6 py-16">
       <ScrollReveal delay={150}>
         <div className="mx-auto max-w-lg">
           <h2 className="mb-10 text-center font-serif text-[1.8rem] tracking-widest">

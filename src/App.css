@@ -30,6 +30,92 @@
 /* Global Reset & Base           */
 /* ============================= */
 
+:root,
+[data-theme="classic"] {
+  --theme-font-body: "TMoneyDungunbaram", "Noto Sans KR", -apple-system,
+    BlinkMacSystemFont, "Segoe UI", Roboto, "Apple SD Gothic Neo", sans-serif;
+  --theme-font-heading: "TMoneyDungunbaram", sans-serif;
+  --theme-font-emphasis: "Juache", "TMoneyDungunbaram", sans-serif;
+
+  --theme-bg: 253 252 252;
+  --theme-surface: 255 255 255;
+  --theme-section-muted: 254 247 249;
+  --theme-pink: 232 174 191;
+  --theme-pink-soft: 254 247 249;
+  --theme-pink-line: 243 198 211;
+  --theme-heart: 239 68 68;
+  --theme-frame: 234 223 214;
+  --theme-text-primary: 51 51 51;
+  --theme-text-secondary: 102 102 102;
+  --theme-text-muted: 153 153 153;
+
+  --theme-shadow-card: 0 4px 20px rgb(0 0 0 / 0.06);
+  --theme-shadow-soft: 0 2px 12px rgb(0 0 0 / 0.05);
+}
+
+[data-theme="classic-pastel"] {
+  --theme-font-body: "TMoneyDungunbaram", "Noto Sans KR", -apple-system,
+    BlinkMacSystemFont, "Segoe UI", Roboto, "Apple SD Gothic Neo", sans-serif;
+  --theme-font-heading: Georgia, "Times New Roman", "TMoneyDungunbaram", serif;
+  --theme-font-emphasis: "TMoneyDungunbaram", "Noto Sans KR", sans-serif;
+
+  --theme-bg: 255 252 250;
+  --theme-surface: 255 255 255;
+  --theme-section-muted: 255 247 249;
+  --theme-pink: 206 151 169;
+  --theme-pink-soft: 253 239 244;
+  --theme-pink-line: 237 204 215;
+  --theme-heart: 211 130 153;
+  --theme-frame: 232 210 202;
+  --theme-text-primary: 63 54 57;
+  --theme-text-secondary: 123 105 110;
+  --theme-text-muted: 169 146 153;
+
+  --theme-shadow-card: 0 18px 48px rgb(164 116 128 / 0.13);
+  --theme-shadow-soft: 0 9px 28px rgb(164 116 128 / 0.1);
+}
+
+[data-theme="soft-arch"] {
+  --theme-bg: 248 246 243;
+  --theme-surface: 255 255 255;
+  --theme-section-muted: 244 240 236;
+  --theme-pink: 180 151 128;
+  --theme-pink-soft: 243 238 233;
+  --theme-pink-line: 219 204 191;
+  --theme-heart: 188 143 126;
+  --theme-frame: 222 214 205;
+  --theme-text-primary: 71 62 56;
+  --theme-text-secondary: 121 108 98;
+  --theme-text-muted: 169 154 142;
+
+  --theme-shadow-card: 0 8px 24px rgb(86 68 54 / 0.07);
+  --theme-shadow-soft: 0 3px 14px rgb(86 68 54 / 0.06);
+}
+
+[data-theme="black-pearl"] {
+  --theme-font-body: "TMoneyDungunbaram", "Noto Sans KR", -apple-system,
+    BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --theme-font-heading: Georgia, "Times New Roman", serif;
+  --theme-font-emphasis: "TMoneyDungunbaram", sans-serif;
+
+  --theme-bg: 248 247 245;
+  --theme-surface: 255 255 255;
+  --theme-section-muted: 241 240 237;
+  --theme-pink: 28 28 28;
+  --theme-pink-soft: 244 243 241;
+  --theme-pink-line: 195 194 190;
+  --theme-heart: 18 18 18;
+  --theme-frame: 153 154 156;
+  --theme-text-primary: 27 27 27;
+  --theme-text-secondary: 77 76 73;
+  --theme-text-muted: 132 130 125;
+
+  --theme-shadow-card: 0 1px 0 rgb(255 255 255),
+    0 12px 34px rgb(0 0 0 / 0.09);
+  --theme-shadow-soft: 0 1px 0 rgb(255 255 255),
+    0 7px 20px rgb(0 0 0 / 0.065);
+}
+
 html,
 body,
 #root {
@@ -39,10 +125,9 @@ body,
 body {
   margin: 0;
   padding: 0;
-  background-color: #fdfcfc; /* wedding-bg */
-  color: #333;
-  font-family: "TMoneyDungunbaram", "Noto Sans KR", -apple-system,
-    BlinkMacSystemFont, "Segoe UI", Roboto, "Apple SD Gothic Neo", sans-serif;
+  background-color: rgb(var(--theme-bg));
+  color: rgb(var(--theme-text-primary));
+  font-family: var(--theme-font-body);
   -webkit-font-smoothing: antialiased;
   -webkit-tap-highlight-color: transparent;
 }
@@ -52,30 +137,30 @@ body {
 /* ============================= */
 
 .font-serif {
-  font-family: "TMoneyDungunbaram", sans-serif;
+  font-family: var(--theme-font-heading);
 }
 
 .font-semibold {
-  font-family: "Juache", "TMoneyDungunbaram", sans-serif;
+  font-family: var(--theme-font-emphasis);
   font-weight: normal;
 }
 
 /* ============================= */
-/* Mobile UX 개선                */
+/* Mobile UX 媛쒖꽑                */
 /* ============================= */
 
-/* 버튼 탭 시 파란 하이라이트 제거 */
+/* 踰꾪듉 ?????뚮? ?섏씠?쇱씠???쒓굅 */
 button {
   -webkit-tap-highlight-color: transparent;
 }
 
-/* 이미지 드래그 방지 */
+/* ?대?吏 ?쒕옒洹?諛⑹? */
 img {
   user-select: none;
   -webkit-user-drag: none;
 }
 
-/* 스크롤 부드럽게 */
+/* ?ㅽ겕濡?遺?쒕읇寃?*/
 html {
   scroll-behavior: smooth;
 }
@@ -89,11 +174,772 @@ html {
 }
 
 main > section:nth-child(even) {
-  background-color: #fef7f9; /* wedding-bg */
+  background-color: rgb(var(--theme-section-muted));
 }
 
 main > section:nth-child(odd) {
-  background-color: #ffffff;
+  background-color: rgb(var(--theme-surface));
+}
+
+/* ============================= */
+/* Classic Pastel Theme          */
+/* ============================= */
+
+[data-theme="classic-pastel"] {
+  min-height: 100vh;
+  background-color: rgb(251 244 242);
+  background-image: linear-gradient(
+      90deg,
+      rgb(255 255 255 / 0.72),
+      rgb(248 226 232 / 0.45) 42%,
+      rgb(255 255 255 / 0.78)
+    ),
+    repeating-linear-gradient(
+      0deg,
+      rgb(203 154 164 / 0.035) 0 1px,
+      transparent 1px 18px
+    );
+  color: rgb(var(--theme-text-primary));
+  font-family: var(--theme-font-body);
+}
+
+[data-theme="classic-pastel"] main {
+  position: relative;
+  margin-inline: auto;
+  max-width: 520px;
+  overflow: hidden;
+  background: rgb(var(--theme-bg));
+  box-shadow: 0 0 0 1px rgb(214 181 188 / 0.34),
+    0 26px 80px rgb(163 116 127 / 0.18);
+}
+
+[data-theme="classic-pastel"] main::before,
+[data-theme="classic-pastel"] main::after {
+  position: absolute;
+  z-index: 4;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(
+    transparent,
+    rgb(206 151 169 / 0.42),
+    transparent
+  );
+  content: "";
+  pointer-events: none;
+}
+
+[data-theme="classic-pastel"] main::before {
+  left: 11px;
+}
+
+[data-theme="classic-pastel"] main::after {
+  right: 11px;
+}
+
+[data-theme="classic-pastel"] main > section {
+  position: relative;
+  border-bottom: 1px solid rgb(237 204 215 / 0.52);
+  background-image: radial-gradient(
+      circle at 16px 16px,
+      rgb(206 151 169 / 0.08) 0 1px,
+      transparent 1.5px
+    ),
+    linear-gradient(90deg, rgb(255 255 255 / 0.65), transparent 42%),
+    linear-gradient(180deg, transparent, rgb(255 246 248 / 0.74));
+  background-size: 32px 32px, auto, auto;
+}
+
+[data-theme="classic-pastel"] main > section:not(:first-child)::before {
+  position: absolute;
+  top: 1.2rem;
+  left: 50%;
+  width: 72px;
+  height: 12px;
+  background-image: radial-gradient(
+      circle,
+      rgb(255 255 255) 0 2px,
+      rgb(222 177 190) 2.6px 3.5px,
+      transparent 4px
+    ),
+    linear-gradient(
+      transparent 5px,
+      rgb(222 177 190 / 0.55) 5px 6px,
+      transparent 6px
+    );
+  background-position: center;
+  background-repeat: no-repeat;
+  content: "";
+  transform: translateX(-50%);
+}
+
+[data-theme="classic-pastel"] h2 {
+  position: relative;
+  margin-bottom: 2.45rem;
+  padding-bottom: 1rem;
+  color: rgb(var(--theme-text-primary));
+  font-family: var(--theme-font-heading);
+  font-size: 1.82rem;
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: 0.04em;
+}
+
+[data-theme="classic-pastel"] h2::before {
+  display: block;
+  margin-bottom: 0.6rem;
+  color: rgb(var(--theme-pink));
+  content: "Classic Pastel";
+  font-family: var(--theme-font-body);
+  font-size: 0.58rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+[data-theme="classic-pastel"] h2::after {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 40px;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgb(var(--theme-pink)),
+    transparent
+  );
+  content: "";
+  transform: translateX(-50%);
+}
+
+[data-theme="classic-pastel"] main [class~="bg-white"] {
+  border: 1px solid rgb(237 204 215 / 0.72);
+  background: rgb(255 255 255 / 0.88);
+  box-shadow: var(--theme-shadow-soft);
+  backdrop-filter: blur(14px);
+}
+
+[data-theme="classic-pastel"] main .rounded-3xl,
+[data-theme="classic-pastel"] main .rounded-2xl,
+[data-theme="classic-pastel"] main .rounded-xl,
+[data-theme="classic-pastel"] main .rounded {
+  border-radius: 8px;
+}
+
+[data-theme="classic-pastel"] main > section:first-child {
+  overflow: hidden;
+  padding: 1rem 1rem 3.35rem;
+  background-color: rgb(255 249 249);
+  background-image: linear-gradient(
+      180deg,
+      rgb(255 255 255 / 0.78),
+      rgb(251 232 237 / 0.34) 64%,
+      rgb(255 252 250)
+    ),
+    radial-gradient(
+      circle at 18% 16%,
+      rgb(255 255 255 / 0.9) 0 2px,
+      transparent 2.5px
+    );
+  background-size: auto, 24px 24px;
+}
+
+[data-theme="classic-pastel"] main > section:first-child::before {
+  position: absolute;
+  z-index: 4;
+  top: 1.85rem;
+  left: 50%;
+  display: flex;
+  width: 150px;
+  height: 34px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgb(255 255 255 / 0.84);
+  border-radius: 999px;
+  background: rgb(255 255 255 / 0.76);
+  box-shadow: 0 10px 28px rgb(177 118 134 / 0.16),
+    inset 0 0 0 1px rgb(216 163 178 / 0.3);
+  color: rgb(var(--theme-pink));
+  content: "Classic Pastel";
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 0.68rem;
+  letter-spacing: 0.13em;
+  white-space: nowrap;
+  transform: translateX(-50%);
+}
+
+[data-theme="classic-pastel"] main > section:first-child > .mx-auto > .relative {
+  overflow: visible;
+}
+
+[data-theme="classic-pastel"] main > section:first-child > .mx-auto > .relative > img {
+  border: 9px solid rgb(255 255 255);
+  border-radius: 10px;
+  outline: 1px solid rgb(226 190 199 / 0.9);
+  box-shadow: 0 0 0 4px rgb(255 250 251 / 0.78),
+    0 24px 54px rgb(169 113 126 / 0.18);
+}
+
+[data-theme="classic-pastel"] main > section:first-child > .mx-auto > .relative > div:nth-of-type(1) {
+  position: relative;
+  z-index: 3;
+  width: calc(100% - 1.7rem);
+  margin: -2.35rem auto 0;
+  padding: 2.25rem 1.25rem 1.75rem;
+  border: 1px solid rgb(236 200 210 / 0.92);
+  border-radius: 8px;
+  background: rgb(255 255 255 / 0.88);
+  box-shadow: inset 0 0 0 5px rgb(255 255 255 / 0.58),
+    var(--theme-shadow-card);
+  backdrop-filter: blur(16px);
+}
+
+[data-theme="classic-pastel"] main > section:first-child > .mx-auto > .relative > div:nth-of-type(1)::before {
+  position: absolute;
+  top: -0.7rem;
+  left: 50%;
+  width: 72px;
+  height: 18px;
+  border-radius: 999px;
+  background: linear-gradient(
+    90deg,
+    rgb(241 204 214),
+    rgb(255 255 255),
+    rgb(232 196 206)
+  );
+  box-shadow: 0 7px 16px rgb(169 113 126 / 0.16);
+  content: "";
+  transform: translateX(-50%);
+}
+
+[data-theme="classic-pastel"] main > section:first-child .pointer-events-none {
+  inset: 2.1rem;
+  border-color: rgb(206 151 169 / 0.42);
+  border-radius: 6px;
+  box-shadow: inset 0 0 0 4px rgb(255 255 255 / 0.22);
+}
+
+[data-theme="classic-pastel"] main > section:nth-child(2) .rounded-3xl {
+  position: relative;
+  padding: 2.8rem 2rem;
+  background-image: linear-gradient(
+      90deg,
+      transparent,
+      rgb(255 244 247 / 0.82),
+      transparent
+    ),
+    radial-gradient(circle, rgb(206 151 169 / 0.09) 0 1px, transparent 1.4px);
+  background-size: auto, 22px 22px;
+}
+
+[data-theme="classic-pastel"] main > section:nth-child(2) .rounded-3xl::before,
+[data-theme="classic-pastel"] main > section:nth-child(2) .rounded-3xl::after {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  border-color: rgb(206 151 169 / 0.45);
+  content: "";
+}
+
+[data-theme="classic-pastel"] main > section:nth-child(2) .rounded-3xl::before {
+  top: 12px;
+  left: 12px;
+  border-top: 1px solid;
+  border-left: 1px solid;
+}
+
+[data-theme="classic-pastel"] main > section:nth-child(2) .rounded-3xl::after {
+  right: 12px;
+  bottom: 12px;
+  border-right: 1px solid;
+  border-bottom: 1px solid;
+}
+
+[data-theme="classic-pastel"] main > section:nth-child(3) .grid.grid-cols-2 {
+  gap: 0.78rem;
+}
+
+[data-theme="classic-pastel"] main > section:nth-child(3) .grid.grid-cols-2 > button,
+[data-theme="classic-pastel"] main > section.wedding-profile .grid > div > .relative {
+  padding: 7px 7px 20px;
+  border: 1px solid rgb(231 196 205 / 0.88);
+  border-radius: 7px;
+  background: rgb(255 255 255);
+  box-shadow: 0 12px 24px rgb(171 116 129 / 0.11);
+}
+
+[data-theme="classic-pastel"] main > section:nth-child(3) .grid.grid-cols-2 > button:first-child {
+  grid-column: 1 / -1;
+  aspect-ratio: 16 / 10;
+}
+
+[data-theme="classic-pastel"] main > section:nth-child(4) .space-y-10 > .rounded-3xl {
+  box-shadow: inset 0 0 0 5px rgb(255 255 255 / 0.66),
+    var(--theme-shadow-card);
+}
+
+[data-theme="classic-pastel"] main > section.wedding-share button:first-child {
+  border: 1px solid rgb(var(--theme-pink));
+  border-radius: 8px;
+  background: rgb(var(--theme-pink));
+  box-shadow: var(--theme-shadow-soft);
+  color: white;
+}
+
+[data-theme="classic-pastel"] main > section.wedding-share button:last-child {
+  border: 1px solid rgb(231 196 205);
+  border-radius: 8px;
+  background: rgb(255 255 255 / 0.9);
+  color: rgb(var(--theme-text-primary));
+}
+
+[data-theme="classic-pastel"] .attendance-dialog {
+  border-radius: 8px;
+  border-color: rgb(237 204 215 / 0.92);
+  box-shadow: 0 24px 70px rgb(164 116 128 / 0.24);
+}
+
+[data-theme="classic-pastel"] .attendance-form {
+  border: 1px solid rgb(237 204 215 / 0.7);
+  border-radius: 8px;
+  background-image: radial-gradient(
+    circle,
+    rgb(206 151 169 / 0.08) 0 1px,
+    transparent 1.4px
+  );
+  background-size: 22px 22px;
+}
+
+/* ============================= */
+/* Black Pearl Theme             */
+/* ============================= */
+
+[data-theme="black-pearl"] {
+  min-height: 100vh;
+  background-color: rgb(232 230 227);
+  background-image: repeating-linear-gradient(
+      45deg,
+      rgb(255 255 255 / 0.2) 0 1px,
+      transparent 1px 4px
+    ),
+    repeating-linear-gradient(
+      -45deg,
+      rgb(23 23 23 / 0.018) 0 1px,
+      transparent 1px 5px
+    );
+  color: rgb(var(--theme-text-primary));
+  font-family: var(--theme-font-body);
+}
+
+[data-theme="black-pearl"] main {
+  position: relative;
+  counter-reset: black-pearl-section;
+  margin-inline: auto;
+  max-width: 520px;
+  background: rgb(var(--theme-bg));
+  box-shadow: 0 0 0 1px rgb(0 0 0 / 0.18),
+    0 32px 90px rgb(0 0 0 / 0.17);
+}
+
+[data-theme="black-pearl"] main::before,
+[data-theme="black-pearl"] main::after {
+  position: absolute;
+  z-index: 3;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: rgb(27 27 27 / 0.13);
+  content: "";
+  pointer-events: none;
+}
+
+[data-theme="black-pearl"] main::before {
+  left: 10px;
+}
+
+[data-theme="black-pearl"] main::after {
+  right: 10px;
+}
+
+[data-theme="black-pearl"] main > section {
+  position: relative;
+  border-bottom: 1px solid rgb(0 0 0 / 0.14);
+}
+
+[data-theme="black-pearl"] main > section:nth-child(4),
+[data-theme="black-pearl"] main > section:nth-child(7),
+[data-theme="black-pearl"] main > section:nth-child(9) {
+  background-color: rgb(242 241 238);
+  background-image: linear-gradient(
+      90deg,
+      rgb(255 255 255 / 0.55),
+      transparent 18%,
+      rgb(255 255 255 / 0.35) 50%,
+      transparent 82%,
+      rgb(255 255 255 / 0.55)
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent 0 15px,
+      rgb(20 20 20 / 0.018) 15px 16px
+    );
+}
+
+[data-theme="black-pearl"] main > section:not(:first-child) {
+  counter-increment: black-pearl-section;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+[data-theme="black-pearl"] main > section:not(:first-child)::before {
+  position: absolute;
+  top: 1.55rem;
+  left: 50%;
+  width: 76px;
+  height: 11px;
+  background-image: radial-gradient(
+      circle,
+      white 0 2px,
+      rgb(204 204 201) 2.5px 3.5px,
+      rgb(28 28 28) 4px 4.8px,
+      transparent 5px
+    ),
+    linear-gradient(
+      transparent 5px,
+      rgb(28 28 28 / 0.75) 5px 6px,
+      transparent 6px
+    );
+  background-position: center;
+  background-repeat: no-repeat;
+  content: "";
+  transform: translateX(-50%);
+}
+
+[data-theme="black-pearl"] h2 {
+  position: relative;
+  margin-bottom: 2.65rem;
+  padding-bottom: 1.15rem;
+  font-family: var(--theme-font-heading);
+  font-size: 1.9rem;
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: 0.05em;
+}
+
+[data-theme="black-pearl"] h2::before {
+  display: block;
+  margin-bottom: 0.65rem;
+  color: rgb(var(--theme-text-secondary));
+  content: counter(black-pearl-section, decimal-leading-zero) "  /  BLACK PEARL";
+  font-family: var(--theme-font-body);
+  font-size: 0.53rem;
+  letter-spacing: 0.22em;
+}
+
+[data-theme="black-pearl"] h2::after {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 36px;
+  height: 1px;
+  background: rgb(var(--theme-text-primary));
+  content: "";
+  transform: translateX(-50%);
+}
+
+[data-theme="black-pearl"] main [class~="bg-white"] {
+  border: 1px solid rgb(0 0 0 / 0.18);
+  background-color: rgb(var(--theme-surface) / 0.98);
+  box-shadow: var(--theme-shadow-soft);
+}
+
+[data-theme="black-pearl"] main .rounded-3xl,
+[data-theme="black-pearl"] main .rounded-2xl,
+[data-theme="black-pearl"] main .rounded-xl,
+[data-theme="black-pearl"] main .rounded {
+  border-radius: 4px;
+}
+
+[data-theme="black-pearl"] main > section:first-child {
+  overflow: hidden;
+  padding: 1.2rem 1.2rem 3.7rem;
+  background-color: rgb(239 238 235);
+  background-image: repeating-linear-gradient(
+      45deg,
+      rgb(255 255 255 / 0.42) 0 1px,
+      transparent 1px 4px
+    ),
+    repeating-linear-gradient(
+      -45deg,
+      rgb(20 20 20 / 0.025) 0 1px,
+      transparent 1px 5px
+    );
+}
+
+[data-theme="black-pearl"] main > section:first-child::before {
+  position: absolute;
+  z-index: 4;
+  top: 2.05rem;
+  left: 50%;
+  display: flex;
+  width: 168px;
+  height: 34px;
+  align-items: center;
+  justify-content: center;
+  background: rgb(17 17 17 / 0.93);
+  box-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.42),
+    0 10px 25px rgb(0 0 0 / 0.2);
+  clip-path: polygon(
+    0 18%,
+    8% 18%,
+    8% 0,
+    92% 0,
+    92% 18%,
+    100% 18%,
+    94% 50%,
+    100% 82%,
+    92% 82%,
+    92% 100%,
+    8% 100%,
+    8% 82%,
+    0 82%,
+    6% 50%
+  );
+  color: white;
+  content: "BLACK  &  PEARL";
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 0.6rem;
+  letter-spacing: 0.18em;
+  white-space: nowrap;
+  transform: translateX(-50%);
+}
+
+[data-theme="black-pearl"] main > section:first-child > .mx-auto > .relative {
+  overflow: visible;
+}
+
+[data-theme="black-pearl"] main > section:first-child > .mx-auto > .relative > img {
+  border: 10px solid rgb(var(--theme-surface));
+  border-radius: 3px;
+  outline: 1px solid rgb(0 0 0 / 0.72);
+  box-shadow: 0 0 0 4px rgb(255 255 255 / 0.46),
+    0 25px 54px rgb(0 0 0 / 0.2);
+}
+
+[data-theme="black-pearl"] main > section:first-child > .mx-auto > .relative > div:nth-of-type(1) {
+  position: relative;
+  z-index: 3;
+  width: calc(100% - 1.7rem);
+  margin: -2.55rem auto 0;
+  padding: 2.55rem 1.25rem 1.8rem;
+  border: 1px solid rgb(0 0 0 / 0.46);
+  border-radius: 3px;
+  background: rgb(var(--theme-surface) / 0.97);
+  box-shadow: inset 0 0 0 5px rgb(255 255 255),
+    inset 0 0 0 6px rgb(0 0 0 / 0.1), var(--theme-shadow-card);
+}
+
+[data-theme="black-pearl"] main > section:first-child > .mx-auto > .relative > div:nth-of-type(1)::before {
+  position: absolute;
+  z-index: 2;
+  top: -0.88rem;
+  left: 50%;
+  width: 26px;
+  height: 26px;
+  border: 5px solid rgb(18 18 18);
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at 35% 30%,
+    white 0 2px,
+    rgb(239 239 237) 3px 7px,
+    rgb(188 189 189) 9px,
+    white 11px
+  );
+  box-shadow: 0 3px 8px rgb(0 0 0 / 0.2);
+  content: "";
+  transform: translateX(-50%);
+}
+
+[data-theme="black-pearl"] main > section:first-child > .mx-auto > .relative > div:nth-of-type(1)::after {
+  position: absolute;
+  top: -0.72rem;
+  left: 50%;
+  width: 94px;
+  height: 22px;
+  background: rgb(18 18 18 / 0.86);
+  clip-path: polygon(0 50%, 25% 0, 50% 45%, 75% 0, 100% 50%, 75% 100%, 50% 55%, 25% 100%);
+  content: "";
+  transform: translateX(-50%);
+}
+
+[data-theme="black-pearl"] main > section:first-child .pointer-events-none {
+  inset: 2.05rem;
+  border-color: rgb(0 0 0 / 0.52);
+  box-shadow: inset 0 0 0 4px rgb(255 255 255 / 0.13);
+}
+
+[data-theme="black-pearl"] main > section:nth-child(2) .rounded-3xl {
+  position: relative;
+  padding: 3rem 2rem;
+  border: 1px solid rgb(0 0 0 / 0.3);
+  background-image: linear-gradient(
+      90deg,
+      rgb(0 0 0 / 0.025) 1px,
+      transparent 1px
+    ),
+    linear-gradient(rgb(0 0 0 / 0.025) 1px, transparent 1px);
+  background-size: 20px 20px;
+  box-shadow: inset 0 0 0 6px rgb(var(--theme-surface)),
+    inset 0 0 0 7px rgb(0 0 0 / 0.18), var(--theme-shadow-card);
+}
+
+[data-theme="black-pearl"] main > section:nth-child(2) .rounded-3xl::before,
+[data-theme="black-pearl"] main > section:nth-child(2) .rounded-3xl::after {
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  border-color: rgb(20 20 20 / 0.7);
+  content: "";
+}
+
+[data-theme="black-pearl"] main > section:nth-child(2) .rounded-3xl::before {
+  top: 12px;
+  left: 12px;
+  border-top: 1px solid;
+  border-left: 1px solid;
+}
+
+[data-theme="black-pearl"] main > section:nth-child(2) .rounded-3xl::after {
+  right: 12px;
+  bottom: 12px;
+  border-right: 1px solid;
+  border-bottom: 1px solid;
+}
+
+[data-theme="black-pearl"] main > section:nth-child(3) .grid.grid-cols-2 {
+  counter-reset: black-pearl-photo;
+  gap: 0.72rem;
+}
+
+[data-theme="black-pearl"] main > section:nth-child(3) .grid.grid-cols-2 > button {
+  position: relative;
+  counter-increment: black-pearl-photo;
+  padding: 7px 7px 22px;
+  border: 1px solid rgb(0 0 0 / 0.32);
+  border-radius: 3px;
+  background: rgb(var(--theme-surface));
+  box-shadow: 4px 4px 0 rgb(20 20 20 / 0.1),
+    0 10px 24px rgb(0 0 0 / 0.06);
+}
+
+[data-theme="black-pearl"] main > section:nth-child(3) .grid.grid-cols-2 > button::after {
+  position: absolute;
+  right: 8px;
+  bottom: 5px;
+  color: rgb(var(--theme-text-muted));
+  content: "FRAME " counter(black-pearl-photo, decimal-leading-zero);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 0.47rem;
+  letter-spacing: 0.14em;
+}
+
+[data-theme="black-pearl"] main > section:nth-child(3) .grid.grid-cols-2 > button:first-child {
+  grid-column: 1 / -1;
+  aspect-ratio: 16 / 10;
+}
+
+[data-theme="black-pearl"] main > section:nth-child(4) .space-y-10 > .rounded-3xl {
+  position: relative;
+  border-radius: 3px;
+  box-shadow: inset 0 0 0 5px rgb(255 255 255),
+    inset 0 0 0 6px rgb(0 0 0 / 0.08), var(--theme-shadow-card);
+}
+
+[data-theme="black-pearl"] main > section:nth-child(4) .space-y-10 > .rounded-3xl::before {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 56px;
+  height: 3px;
+  background: rgb(20 20 20);
+  content: "";
+  transform: translateX(-50%);
+}
+
+[data-theme="black-pearl"] main > section:nth-child(4) .mb-4.flex.justify-center {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.4rem;
+}
+
+[data-theme="black-pearl"] main > section:nth-child(4) .mb-4.flex.justify-center > div > div {
+  width: 100%;
+  max-width: 3.5rem;
+  height: auto;
+  aspect-ratio: 1;
+  border-color: rgb(155 155 153);
+  border-radius: 2px;
+  background: linear-gradient(145deg, rgb(35 35 35), rgb(12 12 12));
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.18),
+    0 5px 12px rgb(0 0 0 / 0.12);
+  color: white;
+}
+
+[data-theme="black-pearl"] main > section.wedding-profile .grid > div > .relative {
+  padding: 7px 7px 23px;
+  border: 1px solid rgb(0 0 0 / 0.32);
+  border-radius: 3px;
+  background: rgb(var(--theme-surface));
+  box-shadow: var(--theme-shadow-soft);
+}
+
+[data-theme="black-pearl"] main > section.wedding-profile .grid > div > .relative::after {
+  position: absolute;
+  right: 8px;
+  bottom: 5px;
+  color: rgb(var(--theme-text-muted));
+  content: "PORTRAIT";
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 0.47rem;
+  letter-spacing: 0.14em;
+}
+
+[data-theme="black-pearl"] main > section.wedding-share button:first-child {
+  border: 1px solid rgb(18 18 18);
+  border-radius: 3px;
+  background: rgb(18 18 18);
+  color: white;
+}
+
+[data-theme="black-pearl"] main > section.wedding-share button:last-child {
+  border: 1px solid rgb(18 18 18);
+  border-radius: 3px;
+  background: white;
+  color: rgb(18 18 18);
+}
+
+[data-theme="black-pearl"] main button {
+  transition: transform 180ms ease, opacity 180ms ease, box-shadow 180ms ease;
+}
+
+[data-theme="black-pearl"] main button.rounded-full,
+[data-theme="black-pearl"] main button.rounded-lg {
+  border-radius: 3px;
+}
+
+[data-theme="black-pearl"] main button:active {
+  opacity: 0.82;
+  transform: translateY(1px);
+}
+
+@media (max-width: 380px) {
+  [data-theme="black-pearl"] main > section:not(:first-child) {
+    padding-inline: 1.1rem;
+  }
+
+  [data-theme="black-pearl"] main > section:nth-child(2) .rounded-3xl {
+    padding-inline: 1.4rem;
+  }
 }
 
 section {
@@ -214,4 +1060,60 @@ button:active {
   animation: showTypingLine 0s 1.35s forwards,
     typing 1.8s steps(var(--typing-steps)) 1.35s forwards,
     caret 0.8s step-end 1.35s 3, hideCaret 0s 3.15s forwards;
+}
+
+.attendance-dialog {
+  border: 1px solid rgb(var(--theme-pink-line));
+  color: rgb(var(--theme-text-primary));
+}
+
+.attendance-choice {
+  border: 1px solid rgb(var(--theme-pink-line));
+  background: rgb(var(--theme-surface));
+  color: rgb(var(--theme-text-secondary));
+  transition: background-color 160ms ease, border-color 160ms ease,
+    color 160ms ease;
+}
+
+.attendance-choice[aria-pressed="true"] {
+  border-color: rgb(var(--theme-pink));
+  background: rgb(var(--theme-pink));
+  color: white;
+  box-shadow: var(--theme-shadow-soft);
+}
+
+.attendance-submit {
+  border: 1px solid rgb(var(--theme-pink));
+  background: rgb(var(--theme-pink));
+  color: white;
+}
+
+.attendance-submit:disabled {
+  border-color: rgb(var(--theme-pink-line));
+  background: rgb(var(--theme-pink-line));
+  color: rgb(var(--theme-surface));
+  cursor: not-allowed;
+}
+
+.attendance-choice:focus-visible,
+.attendance-close:focus-visible,
+.attendance-submit:focus-visible,
+.attendance-open:focus-visible {
+  outline: 2px solid rgb(var(--theme-pink));
+  outline-offset: 2px;
+}
+
+[data-theme="black-pearl"] .attendance-dialog {
+  border-radius: 4px;
+  box-shadow: 0 24px 70px rgb(0 0 0 / 0.34);
+}
+
+[data-theme="black-pearl"] .attendance-form {
+  border: 1px solid rgb(0 0 0 / 0.12);
+  border-radius: 3px;
+  background-image: repeating-linear-gradient(
+    45deg,
+    rgb(255 255 255 / 0.4) 0 1px,
+    transparent 1px 5px
+  );
 }

@@ -8,15 +8,18 @@ export default {
       /* ============================= */
       colors: {
         wedding: {
-          pink: "#E8AEBF",
-          pinkSoft: "#FEF7F9",
-          pinkLine: "#F3C6D3",
+          pink: "rgb(var(--theme-pink) / <alpha-value>)",
+          pinkSoft: "rgb(var(--theme-pink-soft) / <alpha-value>)",
+          pinkLine: "rgb(var(--theme-pink-line) / <alpha-value>)",
+          heart: "rgb(var(--theme-heart) / <alpha-value>)",
+          frame: "rgb(var(--theme-frame) / <alpha-value>)",
 
-          textPrimary: "#333333",
-          textSecondary: "#666666",
-          textMuted: "#999999",
+          textPrimary: "rgb(var(--theme-text-primary) / <alpha-value>)",
+          textSecondary: "rgb(var(--theme-text-secondary) / <alpha-value>)",
+          textMuted: "rgb(var(--theme-text-muted) / <alpha-value>)",
 
-          bg: "#FDFCFC",
+          bg: "rgb(var(--theme-bg) / <alpha-value>)",
+          surface: "rgb(var(--theme-surface) / <alpha-value>)",
         },
       },
 
@@ -32,8 +35,8 @@ export default {
       /* Shadow (Card 중심)            */
       /* ============================= */
       boxShadow: {
-        card: "0 4px 20px rgba(0, 0, 0, 0.06)",
-        soft: "0 2px 12px rgba(0, 0, 0, 0.05)",
+        card: "var(--theme-shadow-card)",
+        soft: "var(--theme-shadow-soft)",
       },
 
       /* ============================= */

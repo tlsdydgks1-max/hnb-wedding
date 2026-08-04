@@ -10,14 +10,17 @@ import { Guestbook } from "./components/Guestbook";
 import { GuestbookDialog } from "./components/GuestbookDialog";
 import { ShareButtons } from "./components/ShareButtons";
 import { Profile } from "./components/Profile";
+import { Attendance } from "./components/Attendance";
 
 function App() {
+  const theme = import.meta.env.VITE_APP_THEME || "classic";
+
   if (window.Kakao && !window.Kakao.isInitialized()) {
     window.Kakao.init("04684303ae3d01f4d5b36492b3326ea8");
   }
 
   return (
-    <div className="w-full">
+    <div className="w-full" data-theme={theme}>
       <main className="flex flex-col items-center w-full overflow-x-hidden">
         <Hero />
 
@@ -30,6 +33,8 @@ function App() {
         <Location />
 
         <WeddingInfo />
+
+        <Attendance />
 
         <Account />
 

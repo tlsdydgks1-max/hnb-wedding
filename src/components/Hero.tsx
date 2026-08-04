@@ -49,7 +49,7 @@ export function Hero() {
 
           <div className="relative z-10 flex h-full flex-col items-center justify-center px-6 pb-20 text-center text-white">
             <p className="type-line type-line-names mb-5 whitespace-nowrap text-xl font-medium tracking-wide">
-              신용한 <span className="text-[#ef4444]">♥</span> 유예빈
+              신용한 <span className="text-wedding-heart">♥</span> 유예빈
             </p>
             <h1 className="type-line type-line-title whitespace-nowrap text-[clamp(1.8rem,8vw,2.8rem)] font-normal leading-tight">
               Our Wedding Day!
@@ -90,7 +90,7 @@ export function Hero() {
             </div>
           </div>
 
-          <div className="pointer-events-none absolute inset-4 border border-[#EADFD6]" />
+          <div className="pointer-events-none absolute inset-4 border border-wedding-frame" />
         </div>
       </div>
     </section>
